@@ -1,0 +1,5 @@
+# Project exclude paths
+/page-security-app/target/
+/page-security-browser/target/
+/page-security-core/target/
+/page-security-demo/target/
