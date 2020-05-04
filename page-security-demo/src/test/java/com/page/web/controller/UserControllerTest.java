@@ -45,19 +45,20 @@ public class UserControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.length()").value(3))
                  .andReturn().getResponse().getContentAsString();
 
-                 System.out.println(result);
+                 System.out.println("前台展示的数据："+result);
 
     }
 
     @Test
     public void  whenGetInfoSuccess() throws Exception{
-        String result =mockMvc.perform(MockMvcRequestBuilders.get("/user/1")
+        String result = mockMvc.perform(MockMvcRequestBuilders.get("/user/1")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.username").value("tom"))
+             //   .andExpect(MockMvcResultMatchers.status().isOk())
+            //    .andExpect(MockMvcResultMatchers.jsonPath("$.username").value("tom"))
                   .andReturn().getResponse().getContentAsString();
 
-                  System.out.println(result);
+                  System.out.println("前台接收到后台的数据为："+result);
+
     }
 
     @Test

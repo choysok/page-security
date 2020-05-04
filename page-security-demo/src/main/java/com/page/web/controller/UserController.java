@@ -3,6 +3,7 @@ package com.page.web.controller;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.page.domain.User;
 import com.page.domain.UserQueryCondition;
+import com.page.exception.UserNotExistException;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 import org.springframework.validation.BindingResult;
@@ -96,9 +97,13 @@ public class UserController {
     @GetMapping(value = "/{id:\\d+}") //   （\\d+ 表示只能接受数字）
     @JsonView(User.UserDetailView.class)
     public User getInfo(@PathVariable(required = true) String id){// (String id)名称必须和{id}请求路径上参数名称一致
-        User user = new User();
-        user.setUsername("tom");
-        System.out.println("getInfo（）方法。。。。。。。。。。");
-        return user;
+         System.out.println("后端——————getInfo（）方法。。。。。。。。。。");
+          User user = new User();
+          user.setUsername("tom");
+        System.out.println("后端——————getInfo（）方法。。。。。。。结束。。。");
+          return user;
+//           throw  new  UserNotExistException(id);
+
+
     }
 }
