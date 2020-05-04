@@ -1,8 +1,12 @@
 package com.page.domain;
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class UserQueryCondition {
     private String username;
+    @ApiModelProperty(value = "用户年龄的启始值")
     private int age;
+    @ApiModelProperty(value = "用户年龄的终止值")
     private int ageTo;
     private String xxx;
 

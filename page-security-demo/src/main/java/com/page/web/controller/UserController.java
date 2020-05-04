@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.page.domain.User;
 import com.page.domain.UserQueryCondition;
 import com.page.exception.UserNotExistException;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 import org.springframework.validation.BindingResult;
@@ -79,6 +81,7 @@ public class UserController {
 
     @GetMapping
     @JsonView(User.UserSimpleView.class)
+    @ApiOperation(value = "查询所有用户的服务")//用来描述方法
     //UserQueryCondition 用来封装请求的参数的值
     public List<User> query(UserQueryCondition condition){ // @PageableDefault(page = 2,size = 15 ,sort ="age,asc")Pageable pageable(使用Spring Data 可以使用此参数)
 
@@ -96,7 +99,7 @@ public class UserController {
 
     @GetMapping(value = "/{id:\\d+}") //   （\\d+ 表示只能接受数字）
     @JsonView(User.UserDetailView.class)
-    public User getInfo(@PathVariable(required = true) String id){// (String id)名称必须和{id}请求路径上参数名称一致
+    public User getInfo(@ApiParam(value = "用户的ID") @PathVariable(required = true) String id){// (String id)名称必须和{id}请求路径上参数名称一致
          System.out.println("后端——————getInfo（）方法。。。。。。。。。。");
           User user = new User();
           user.setUsername("tom");
