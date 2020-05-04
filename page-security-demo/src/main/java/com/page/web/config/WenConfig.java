@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.AsyncSupportConfigurer;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -14,10 +15,19 @@ import javax.servlet.FilterRegistration;
 import java.util.ArrayList;
 import java.util.List;
 //此配置类，用于配置过滤器类
-@Configuration
+//@Configuration
 public class WenConfig extends WebMvcConfigurerAdapter {//WebMvcConfigurerAdapter用于注册 Interceptor
      @Autowired
     private TimeInterceptor interceptor;
+     //配置异步支持
+    @Override
+    public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
+
+       //异步情况下拦截器的注册方式
+//       configurer.registerCallableInterceptors();
+//       configurer.registerDeferredResultInterceptors();
+
+    }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

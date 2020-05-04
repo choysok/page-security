@@ -6,7 +6,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
 @Aspect
-@Component
+//@Component
 public class TimeAspect {
     // 第一个星号代表  任何的返回值   第二个星号代表 任何方法   括号里的点点代表 任何参数
     @Around("execution(* com.page.web.controller.UserController.*(..))")
