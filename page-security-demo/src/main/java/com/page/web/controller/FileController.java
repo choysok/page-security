@@ -14,6 +14,8 @@ import java.util.Date;
 @RequestMapping("/file")
 public class FileController {
 
+
+
      //文件夹  文件夹   文件夹  文件夹路径
      private   String folderPath = "C:\\Page\\IDEA\\Workspace\\page-security\\page-security-demo\\src\\main\\java\\com\\page\\web\\controller";
 
@@ -37,6 +39,7 @@ public class FileController {
            multipartFile.transferTo(localFilePath);
 
            FileInfo fileInfo =  new FileInfo(localFilePath.getAbsolutePath());
+
 
            return fileInfo;
        }
