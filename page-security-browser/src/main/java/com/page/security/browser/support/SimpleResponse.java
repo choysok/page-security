@@ -2,17 +2,17 @@ package com.page.security.browser.support;
 
 public class SimpleResponse {
 
-    private Object contect;
+    private Object content;
 
-    public SimpleResponse(Object contect) {
-        this.contect = contect;
+    public SimpleResponse(Object content) {
+        this.content = content;
     }
 
-    public Object getContect() {
-        return contect;
+    public Object getContent() {
+        return content;
     }
 
-    public void setContect(Object contect) {
-        this.contect = contect;
+    public void setContent(Object content) {
+        this.content = content;
     }
 }

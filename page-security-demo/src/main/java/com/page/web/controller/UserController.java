@@ -1,6 +1,7 @@
 package com.page.web.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.page.domain.User;
 import com.page.domain.UserQueryCondition;
 import com.page.exception.UserNotExistException;
@@ -8,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +24,13 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
+
+
+    @GetMapping("/me")
+    public Object getCurrentUser(){
+
+        return SecurityContextHolder.getContext().getAuthentication();
+    }
 
 
     @DeleteMapping("/{id:\\d+}")

@@ -21,8 +21,9 @@ public class MyUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         logger.info("loginName："+s);
+        //根据用户名查找用户信息
       //  return new User(s,"123", AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
-        //passwordEncoder.encode("123") 。这个动作应该是注册的时候做的。
+        //passwordEncoder.encode("123") 。这个动作应该是注册的时候做的。用于加密。matches()用于验证用户输入的密码是否和数据库的密码匹配。
         String encode = passwordEncoder.encode("123");
         System.out.println("this is password:"+encode);
 

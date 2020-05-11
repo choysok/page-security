@@ -34,6 +34,7 @@ public class BrowserSecurityController {
     @RequestMapping("/authentication/require")
     @ResponseStatus(code = HttpStatus.UNAUTHORIZED)
     public SimpleResponse requireAuthentication(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException {
+
         SavedRequest savedRequest = requestCache.getRequest(httpServletRequest, httpServletResponse);
 
         if (savedRequest != null) {
@@ -45,4 +46,5 @@ public class BrowserSecurityController {
         }
         return new SimpleResponse("访问的服务需要身份认证，请引导用户到登录页");
     }
+
 }
